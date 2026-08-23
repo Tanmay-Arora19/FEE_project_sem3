@@ -48,7 +48,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 2. Global Button Functionalities
+    // 2. Navbar Logo / Brand navigation
+    const brandLinks = document.querySelectorAll('.navbar-brand');
+    brandLinks.forEach(brand => {
+        brand.addEventListener('click', (e) => {
+            // Ensure navigation to index.html
+            if (!brand.getAttribute('href')) {
+                window.location.href = 'index.html';
+            }
+        });
+    });
+
+    // 3. Global Button Functionalities
     const playBtns = document.querySelectorAll('.play-btn');
     playBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
