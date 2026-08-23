@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Auth State Management
     const authContainer = document.querySelector('.navbar-auth');
-    const user = JSON.parse(localStorage.getItem('spotifyUser'));
+    const user = JSON.parse(localStorage.getItem('pulsewaveUser'));
 
     if (authContainer) {
         if (user) {
             // User is logged in
             authContainer.innerHTML = `
                 <div class="user-profile" style="display: flex; align-items: center; gap: 10px; cursor: pointer; position: relative;">
-                    <div style="width: 35px; height: 35px; background: #1DB954; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">
+                    <div style="width: 35px; height: 35px; background: linear-gradient(135deg, #7928CA, #FF0080, #00DFD8); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; box-shadow: 0 0 10px rgba(0, 223, 216, 0.4);">
                         ${user.name.charAt(0).toUpperCase()}
                     </div>
                     <span style="color: white; font-weight: 600;">${user.name}</span>
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Logout
             document.getElementById('logoutBtn').addEventListener('click', () => {
-                localStorage.removeItem('spotifyUser');
+                localStorage.removeItem('pulsewaveUser');
                 window.location.reload();
             });
         } else {

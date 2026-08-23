@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library - Spotify Clone</title>
+    <title>Library - PulseWave</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/style.css">
@@ -12,8 +13,8 @@
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-brand">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify Logo" class="navbar-logo">
-                <span class="navbar-title">Spotify</span>
+                <img src="../assets/logo.svg" alt="PulseWave Logo" class="navbar-logo">
+                <span class="navbar-title">PulseWave</span>
             </div>
             <ul class="navbar-menu">
                 <li><a href="home.html" class="nav-link">Home</a></li>
@@ -52,7 +53,7 @@
         const libraryData = {
             playlists: [
                 { title: "Liked Songs", desc: "124 songs", img: "https://misc.scdn.co/liked-songs/liked-songs-300.png", type: "playlist" },
-                { title: "Chill Vibes", desc: "By Spotify", img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=500&q=80", type: "playlist" },
+                { title: "Chill Vibes", desc: "By PulseWave", img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=500&q=80", type: "playlist" },
                 { title: "Daily Mix 1", desc: "Made for You", img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=500&q=80", type: "playlist" }
             ],
             podcasts: [
@@ -60,12 +61,12 @@
                 { title: "The Daily", desc: "New York Times", img: "https://images.unsplash.com/photo-1588667500585-611ffed6dfba?w=500&q=80", type: "podcast" }
             ],
             artists: [
-                { title: "The Weeknd", desc: "Artist", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80", type: "artist" },
-                { title: "Taylor Swift", desc: "Artist", img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80", type: "artist" }
+                { title: "The Weeknd", desc: "Artist", img: "../assets/weeknd.jpg", type: "artist" },
+                { title: "Taylor Swift", desc: "Artist", img: "../assets/taylor swift.jpg", type: "artist" }
             ],
             albums: [
-                { title: "Midnight Dreams", desc: "The Weeknd", img: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=400&q=80", type: "album" },
-                { title: "Folklore", desc: "Taylor Swift", img: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=400&q=80", type: "album" }
+                { title: "Midnight Dreams", desc: "The Weeknd", img: "../assets/midnight dreams.jpg", type: "album" },
+                { title: "Folklore", desc: "Taylor Swift", img: "../assets/folklore vol. 2.jpg", type: "album" }
             ]
         };
 
@@ -120,8 +121,8 @@
         <div class="footer-content">
             <div class="footer-column">
                 <div class="footer-logo">
-                    <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify Logo">
-                    <span>Spotify Clone</span>
+                    <img src="../assets/logo.svg" alt="PulseWave Logo">
+                    <span>PulseWave</span>
                 </div>
                 <p>Your ultimate music streaming platform for discovering and enjoying music</p>
             </div>
@@ -154,12 +155,8 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Spotify Clone. All Rights Reserved.</p>
+            <p>&copy; 2026 PulseWave. All Rights Reserved.</p>
         </div>
     </footer>
 <script src="../JS/app.js"></script>
-</body>
-</html>
-
-
 

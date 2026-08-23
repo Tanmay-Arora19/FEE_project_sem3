@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <!-- Vibrant standout gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7928CA" />
+      <stop offset="50%" stop-color="#FF0080" />
+      <stop offset="100%" stop-color="#00DFD8" />
+    </linearGradient>
+    <linearGradient id="pulseGlow" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F5D4" />
+      <stop offset="50%" stop-color="#7B2CBF" />
+      <stop offset="100%" stop-color="#FF007A" />
+    </linearGradient>
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="50%" stop-color="#00FFFF" stop-opacity="1" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.95" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#FF0080" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <!-- Outer Glowing Squircle / Pod with Standout Gradient -->
+  <rect x="6" y="6" width="88" height="88" rx="26" fill="url(#bgGrad)" filter="url(#subtleShadow)" />
+
+  <!-- Inner Dark Contrast Core to accentuate the neon wave -->
+  <rect x="12" y="12" width="76" height="76" rx="20" fill="#0A0A12" fill-opacity="0.82" />
+
+  <!-- Dynamic Sonic Pulse Waves & Audio Bars (PulseWave Identity) -->
+  <!-- Left Sound Bar 1 -->
+  <rect x="24" y="42" width="6.5" height="16" rx="3.25" fill="url(#pulseGlow)" />
+  
+  <!-- Left-Mid Sound Bar 2 -->
+  <rect x="34.5" y="32" width="6.5" height="36" rx="3.25" fill="url(#waveGrad)" />
+  
+  <!-- Center Main Pulse Beat 3 -->
+  <rect x="45" y="21" width="7" height="58" rx="3.5" fill="url(#pulseGlow)" filter="url(#glow)" />
+  
+  <!-- Right-Mid Sound Bar 4 -->
+  <rect x="56" y="29" width="6.5" height="42" rx="3.25" fill="url(#waveGrad)" />
+  
+  <!-- Right Sound Bar 5 -->
+  <rect x="66.5" y="40" width="6.5" height="20" rx="3.25" fill="url(#pulseGlow)" />
+
+  <!-- Flowing Audio Wave Overlay Ribbon -->
+  <path d="M 20 50 Q 36 28 50 50 T 80 50" fill="none" stroke="url(#waveGrad)" stroke-width="3" stroke-linecap="round" opacity="0.85" />
+  
+  <!-- Ambient Sparkle Dots -->
+  <circle cx="50" cy="16" r="2" fill="#00FFFF" opacity="0.9" />
+  <circle cx="78" cy="26" r="1.5" fill="#FF0080" opacity="0.9" />
+  <circle cx="22" cy="74" r="1.5" fill="#00DFD8" opacity="0.9" />
+</svg>

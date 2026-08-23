@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Spotify Clone</title>
+    <title>Home - PulseWave</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/style.css">
@@ -12,8 +13,8 @@
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-brand">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify Logo" class="navbar-logo">
-                <span class="navbar-title">Spotify</span>
+                <img src="../assets/logo.svg" alt="PulseWave Logo" class="navbar-logo">
+                <span class="navbar-title">PulseWave</span>
             </div>
             <ul class="navbar-menu">
                 <li><a href="home.html" class="nav-link">Home</a></li>
@@ -82,10 +83,10 @@
         ];
 
         const recent = [
-            { name: "Starboy", desc: "The Weeknd", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80" },
-            { name: "1989", desc: "Taylor Swift", img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&q=80" },
-            { name: "After Hours", desc: "The Weeknd", img: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=300&q=80" },
-            { name: "Scorpion", desc: "Drake", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80" }
+            { name: "Starboy", desc: "The Weeknd", img: "../assets/weeknd.jpg" },
+            { name: "1989", desc: "Taylor Swift", img: "../assets/taylor swift.jpg" },
+            { name: "After Hours", desc: "The Weeknd", img: "../assets/midnight dreams.jpg" },
+            { name: "Scorpion", desc: "Drake", img: "../assets/drake.jpg" }
         ];
 
         function renderScroll(containerId, data) {
@@ -109,8 +110,8 @@
         <div class="footer-content">
             <div class="footer-column">
                 <div class="footer-logo">
-                    <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify Logo">
-                    <span>Spotify Clone</span>
+                    <img src="../assets/logo.svg" alt="PulseWave Logo">
+                    <span>PulseWave</span>
                 </div>
                 <p>Your ultimate music streaming platform for discovering and enjoying music</p>
             </div>
@@ -143,12 +144,8 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Spotify Clone. All Rights Reserved.</p>
+            <p>&copy; 2026 PulseWave. All Rights Reserved.</p>
         </div>
     </footer>
 <script src="../JS/app.js"></script>
-</body>
-</html>
-
-
 

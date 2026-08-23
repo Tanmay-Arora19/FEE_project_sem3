@@ -1,7 +1,7 @@
 /* ================================
-   SPOTIFY CLONE - CSS STYLESHEET
+   PULSEWAVE - CSS STYLESHEET
    ================================
-   This file contains all the styles for the Spotify Clone website.
+   This file contains all the styles for the PulseWave website.
    Each section is clearly commented for easy understanding.
 */
 
@@ -77,7 +77,7 @@ ul {
    Main colors used throughout the website
    - Dark Background: #121212
    - Card Background: #181818
-   - Spotify Green: #1DB954
+   - Primary Accent: #1DB954
    - White: #FFFFFF
    - Gray: #B3B3B3
 */
@@ -138,6 +138,13 @@ ul {
 .navbar-logo {
     width: 32px;
     height: 32px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 6px rgba(255, 0, 128, 0.45));
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover .navbar-logo {
+    transform: scale(1.08) rotate(-4deg);
 }
 
 /* Navbar website title */
@@ -443,6 +450,9 @@ ul {
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     min-width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .playlist-card:hover {
@@ -515,11 +525,16 @@ ul {
 .playlist-image {
     overflow: hidden;
     background-color: #282828;
+    aspect-ratio: 16 / 10;
 }
 
 /* Playlist image styling */
 .playlist-image img {
     width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
     transition: transform 0.3s ease;
 }
 
@@ -631,6 +646,10 @@ ul {
     transition: all 0.3s ease;
     padding: 15px;
     min-width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .artist-card:hover {
@@ -690,7 +709,14 @@ ul {
 .artist-image img {
     width: 100%;
     height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
     transition: transform 0.3s ease;
+}
+
+.artist-card:nth-child(5) .artist-image img {
+    object-position: center center;
 }
 
 .artist-card:hover .artist-image img {
@@ -776,6 +802,9 @@ ul {
     text-align: center;
     padding: 15px;
     min-width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .album-card:hover {
@@ -819,11 +848,16 @@ ul {
     overflow: hidden;
     border-radius: 8px;
     margin-bottom: 15px;
+    aspect-ratio: 1;
 }
 
 /* Album cover image */
 .album-cover img {
     width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
     transition: transform 0.3s ease;
 }
 
@@ -1135,6 +1169,8 @@ ul {
 .footer-logo img {
     width: 32px;
     height: 32px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 6px rgba(255, 0, 128, 0.45));
 }
 
 /* Footer column heading */
@@ -1294,7 +1330,7 @@ ul {
 @media (max-width: 768px) {
     /* Playlist image styling */
     .playlist-image img {
-        height: 300px;
+        height: 100%;
         object-fit: cover;
     }
 
@@ -1306,7 +1342,7 @@ ul {
 
     /* Album cover image */
     .album-cover img {
-        height: 300px;
+        height: 100%;
         object-fit: cover;
     }
 }
@@ -1468,7 +1504,7 @@ ul {
     /* Mobile image adjustments */
     /* Playlist image styling */
     .playlist-image img {
-        height: 250px;
+        height: 100%;
         object-fit: cover;
     }
 
@@ -1480,7 +1516,7 @@ ul {
 
     /* Album cover image */
     .album-cover img {
-        height: 250px;
+        height: 100%;
         object-fit: cover;
     }
 }

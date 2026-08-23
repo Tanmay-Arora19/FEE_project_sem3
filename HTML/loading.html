@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="5;url=/FEE_project/HTML/index.html">
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
     <link rel="stylesheet" href="../CSS/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Loading - Spotify Clone</title>
+    <title>Loading - PulseWave</title>
     <style>
         * {
             margin: 0;
@@ -45,6 +46,7 @@
         .loading-logo img {
             width: 60px;
             height: 60px;
+            filter: drop-shadow(0 0 12px rgba(255, 0, 128, 0.4));
         }
 
         .loading-logo h1 {
@@ -52,8 +54,10 @@
             font-weight: 700;
         }
 
-        .loading-logo .spotify-green {
-            color: #1DB954;
+        .loading-logo .pulse-text {
+            background: linear-gradient(135deg, #7928CA, #FF0080, #00DFD8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .loading-section {
@@ -127,7 +131,7 @@
 
         .loading-stat i {
             font-size: 2.5rem;
-            color: #1DB954;
+            color: #00DFD8;
             margin-bottom: 1rem;
         }
 
@@ -158,11 +162,11 @@
 
         .progress-fill {
             height: 100%;
-            background-color: #1DB954;
+            background: linear-gradient(90deg, #7928CA, #FF0080, #00DFD8);
             border-radius: 4px;
             width: 0%;
             animation: progress 5s linear forwards;
-            box-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+            box-shadow: 0 0 12px rgba(0, 223, 216, 0.6);
         }
 
         @keyframes progress {
@@ -208,14 +212,13 @@
 <body>
     <div class="loading-container">
         <div class="loading-logo">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify Logo">
-            <h1><span class="spotify-green">Spotify</span> Clone</h1>
+            <img src="../assets/logo.svg" alt="PulseWave Logo">
+            <h1><span class="pulse-text">Pulse</span>Wave</h1>
         </div>
 
         <div class="progress-container">
             <div class="progress-bar">
-                <div class="progress-fill">
-                </div>
+                <div class="progress-fill"></div>
             </div>
             <div class="loading-text">loading...</div>
         </div>
@@ -265,9 +268,6 @@
             Please wait while we load your music experience
         </div>
     </div>
-<script src="../JS/app.js"></script>
+    <script src="../JS/app.js"></script>
 </body>
 </html>
-
-
-
