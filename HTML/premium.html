@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium - Spotify Clone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify Logo" class="navbar-logo">
+                <span class="navbar-title">Spotify</span>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="search.html" class="nav-link">Search</a></li>
+                <li><a href="library.html" class="nav-link">Library</a></li>
+                <li><a href="premium.html" class="nav-link">Premium</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="navbar-auth">
+                <button class="btn-login">Login</button>
+                <button class="btn-signup">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="premium-hero" style="background: #1d75de; padding: 10rem 2rem 5rem; text-align: center; color: white;">
+        <h1 style="font-size: 3rem; margin-bottom: 1.5rem; font-weight: 700;">Get Premium free for 1 month</h1>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; font-weight: 400;">Just ₹119/month after. Cancel anytime.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <button style="background: #121212; color: #fff; padding: 15px 30px; border-radius: 50px; font-weight: 700; border: none; cursor: pointer; font-size: 1rem; font-family: 'Poppins', sans-serif;">GET STARTED</button>
+            <button style="background: transparent; color: #fff; padding: 15px 30px; border-radius: 50px; font-weight: 700; border: 2px solid #fff; cursor: pointer; font-size: 1rem; font-family: 'Poppins', sans-serif;">VIEW PLANS</button>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 1.5rem; color: #ccc;">Terms and conditions apply. 1 month free not available for users who have already tried Premium.</p>
+    </section>
+
+    <section class="premium-plans" style="padding: 5rem 2rem; max-width: 1200px; margin: 0 auto;">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">Pick your Premium</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <!-- Plan 1 -->
+            <div style="background: #242424; border-radius: 10px; padding: 20px; display: flex; flex-direction: column;">
+                <span style="background: #1d75de; color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; display: inline-block; width: max-content; margin-bottom: 1rem;">1 month free</span>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #fff;">Individual</h3>
+                <p style="color: #fff; margin-bottom: 0.5rem;">₹119/month after offer period</p>
+                <p style="color: #fff; margin-bottom: 1.5rem; border-bottom: 1px solid #333; padding-bottom: 1.5rem;">1 account</p>
+                <ul style="list-style: none; padding: 0; margin-bottom: 2rem; flex-grow: 1;">
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-check" style="color: #1DB954; margin-top: 4px;"></i> Ad-free music listening</li>
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-check" style="color: #1DB954; margin-top: 4px;"></i> Play anywhere - even offline</li>
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-check" style="color: #1DB954; margin-top: 4px;"></i> On-demand playback</li>
+                </ul>
+                <button style="width: 100%; background: #fff; color: #000; padding: 12px; border-radius: 50px; font-weight: 700; border: none; cursor: pointer; font-size: 1rem; font-family: 'Poppins', sans-serif; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">GET STARTED</button>
+            </div>
+            <!-- Plan 2 -->
+            <div style="background: #242424; border-radius: 10px; padding: 20px; display: flex; flex-direction: column;">
+                <span style="background: #1d75de; color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; display: inline-block; width: max-content; margin-bottom: 1rem;">1 month free</span>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #fff;">Duo</h3>
+                <p style="color: #fff; margin-bottom: 0.5rem;">₹149/month after offer period</p>
+                <p style="color: #fff; margin-bottom: 1.5rem; border-bottom: 1px solid #333; padding-bottom: 1.5rem;">2 accounts</p>
+                <ul style="list-style: none; padding: 0; margin-bottom: 2rem; flex-grow: 1;">
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-check" style="color: #1DB954; margin-top: 4px;"></i> 2 Premium accounts for a couple under one roof</li>
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-check" style="color: #1DB954; margin-top: 4px;"></i> Ad-free music listening, play offline, on-demand playback</li>
+                </ul>
+                <button style="width: 100%; background: #fff; color: #000; padding: 12px; border-radius: 50px; font-weight: 700; border: none; cursor: pointer; font-size: 1rem; font-family: 'Poppins', sans-serif; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">GET STARTED</button>
+            </div>
+            <!-- Plan 3 -->
+            <div style="background: #242424; border-radius: 10px; padding: 20px; display: flex; flex-direction: column;">
+                <span style="background: #1d75de; color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; display: inline-block; width: max-content; margin-bottom: 1rem;">1 month free</span>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #fff;">Family</h3>
+                <p style="color: #fff; margin-bottom: 0.5rem;">₹179/month after offer period</p>
+                <p style="color: #fff; margin-bottom: 1.5rem; border-bottom: 1px solid #333; padding-bottom: 1.5rem;">Up to 6 accounts</p>
+                <ul style="list-style: none; padding: 0; margin-bottom: 2rem; flex-grow: 1;">
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-check" style="color: #1DB954; margin-top: 4px;"></i> 6 Premium accounts for family members living under one roof</li>
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-check" style="color: #1DB954; margin-top: 4px;"></i> Block explicit music</li>
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-check" style="color: #1DB954; margin-top: 4px;"></i> Ad-free music listening, play offline, on-demand playback</li>
+                </ul>
+                <button style="width: 100%; background: #fff; color: #000; padding: 12px; border-radius: 50px; font-weight: 700; border: none; cursor: pointer; font-size: 1rem; font-family: 'Poppins', sans-serif; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">GET STARTED</button>
+            </div>
+            <!-- Plan 4 -->
+            <div style="background: #242424; border-radius: 10px; padding: 20px; display: flex; flex-direction: column;">
+                <span style="background: #1d75de; color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; display: inline-block; width: max-content; margin-bottom: 1rem;">1 month free</span>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #fff;">Student</h3>
+                <p style="color: #fff; margin-bottom: 0.5rem;">₹59/month after offer period</p>
+                <p style="color: #fff; margin-bottom: 1.5rem; border-bottom: 1px solid #333; padding-bottom: 1.5rem;">1 account</p>
+                <ul style="list-style: none; padding: 0; margin-bottom: 2rem; flex-grow: 1;">
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-check" style="color: #1DB954; margin-top: 4px;"></i> Special discount for eligible students in university</li>
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-check" style="color: #1DB954; margin-top: 4px;"></i> Ad-free music listening</li>
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-check" style="color: #1DB954; margin-top: 4px;"></i> Play anywhere - even offline</li>
+                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><i class="fas fa-check" style="color: #1DB954; margin-top: 4px;"></i> On-demand playback</li>
+                </ul>
+                <button style="width: 100%; background: #fff; color: #000; padding: 12px; border-radius: 50px; font-weight: 700; border: none; cursor: pointer; font-size: 1rem; font-family: 'Poppins', sans-serif; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">GET STARTED</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify Logo">
+                    <span>Spotify Clone</span>
+                </div>
+                <p>Your ultimate music streaming platform for discovering and enjoying music</p>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="premium.html">Premium</a></li>
+                    <li><a href="contact.html">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Spotify Clone. All Rights Reserved.</p>
+        </div>
+    </footer>
+<script src="../JS/app.js"></script>
+</body>
+</html>
+
+
+

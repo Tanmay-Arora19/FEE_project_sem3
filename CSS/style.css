@@ -1,0 +1,1514 @@
+/* ================================
+   SPOTIFY CLONE - CSS STYLESHEET
+   ================================
+   This file contains all the styles for the Spotify Clone website.
+   Each section is clearly commented for easy understanding.
+*/
+
+/* ================================
+   1. CSS RESET & BASE STYLES
+   ================================
+   These styles reset browser defaults and set up the foundation.
+*/
+
+/* Reset margins and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main body styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #FFFFFF;
+    line-height: 1.6;
+}
+
+/* Play button for all card types */
+.play-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 48px;
+    height: 48px;
+    background: #1db954;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.play-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #000;
+    margin-left: 3px;
+}
+
+/* Show play button on hover */
+.playlist-card:hover .play-btn,
+.artist-card:hover .play-btn,
+.album-card:hover .play-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Remove default link styling */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Remove default list styling */
+ul {
+    list-style: none;
+}
+
+/* ================================
+   2. COLOR PALETTE & VARIABLES
+   ================================
+   Main colors used throughout the website
+   - Dark Background: #121212
+   - Card Background: #181818
+   - Spotify Green: #1DB954
+   - White: #FFFFFF
+   - Gray: #B3B3B3
+*/
+
+/* ================================
+    3. NAVBAR STYLES
+    ================================
+    The navigation bar at the top of the page.
+    It's sticky, so it stays at the top when scrolling.
+    */
+
+/* Navbar container */
+.navbar {
+    background-color: #000;
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid #282828;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Flexbox layout for navbar content */
+.navbar-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Flexbox layout for navbar content */
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Navbar brand (logo + title) */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-brand:hover {
+    opacity: 0.8;
+}
+
+/* Navbar logo image */
+.navbar-logo {
+    width: 32px;
+    height: 32px;
+}
+
+/* Navbar website title */
+.navbar-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+/* Navigation menu (list of links) */
+.navbar-menu {
+    display: flex;
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+}
+
+/* Individual navigation links */
+.nav-link {
+    color: #B3B3B3;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+/* Hover effect on navigation links */
+.nav-link:hover {
+    color: #1DB954;
+}
+
+/* Underline animation on hover */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #1DB954;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Navbar authentication buttons */
+.navbar-auth {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Hamburger menu for mobile */
+.hamburger {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Navigation links for desktop */
+.nav-links {
+    display: none;
+}
+
+/* Hamburger menu for mobile */
+.hamburger {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Navigation links for desktop */
+.nav-links {
+    display: none;
+}
+
+/* Login button styling */
+.btn-login {
+    background-color: transparent;
+    border: 2px solid #B3B3B3;
+    color: #B3B3B3;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-login:hover {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+/* Sign Up button styling */
+.btn-signup {
+    background-color: #1DB954;
+    border: none;
+    color: #FFFFFF;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-signup:hover {
+    background-color: #1ed760;
+    transform: scale(1.05);
+}
+
+/* ================================
+    4. HERO SECTION STYLES
+    ================================
+    The large banner section at the top of the page.
+    */
+
+.hero {
+    background: linear-gradient(135deg, #1DB954 0%, #121212 100%);
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Hero content (text and buttons) */
+.hero-content {
+    flex: 1;
+}
+
+/* Hero main heading */
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+}
+
+/* Hero description */
+.hero-description {
+    font-size: 1.1rem;
+    color: #B3B3B3;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+/* Hero buttons container */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* General button styling */
+.btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Primary button (green) */
+.btn-primary {
+    background-color: #1DB954;
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background-color: #1ed760;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(29, 185, 84, 0.4);
+}
+
+/* Secondary button (white outline) */
+.btn-secondary {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+}
+
+.btn-secondary:hover {
+    background-color: #FFFFFF;
+    color: #1DB954;
+    transform: scale(1.05);
+}
+
+/* Hero image container */
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+/* Hero image styling */
+.hero-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
+}
+
+/* ================================
+    5. SECTION HEADER STYLES
+    ================================
+    Heading and description for each section.
+    */
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+/* Section main heading */
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* See all link */
+.see-all {
+    font-size: 0.9rem;
+    color: #b3b3b3;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.see-all:hover {
+    color: #fff;
+}
+
+/* ================================
+    6. FEATURED PLAYLISTS SECTION
+    ================================
+    Cards showing featured playlists with horizontal scrolling.
+    */
+
+.featured-playlists {
+    padding: 4rem 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Section header for featured playlists */
+.featured-playlists .section-header {
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+/* Horizontal scroll container - Mobile First */
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 5px 20px 5px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #1db954 #121212;
+}
+
+.scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: #121212;
+    border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #1db954;
+    border-radius: 10px;
+}
+
+/* Grid view for desktop */
+.grid-view {
+    display: none;
+}
+
+/* Individual playlist card */
+.playlist-card {
+    flex: 0 0 calc(100% - 15px);
+    scroll-snap-align: start;
+    background-color: #181818;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    min-width: 100%;
+}
+
+.playlist-card:hover {
+    background-color: #282828;
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(29, 185, 84, 0.2);
+}
+
+/* Play button on hover */
+.play-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 48px;
+    height: 48px;
+    background: #1db954;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.play-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #000;
+    margin-left: 3px;
+}
+
+.playlist-card:hover .play-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Play button on hover */
+.play-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 48px;
+    height: 48px;
+    background: #1db954;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.play-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #000;
+    margin-left: 3px;
+}
+
+.playlist-card:hover .play-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Playlist image container */
+.playlist-image {
+    overflow: hidden;
+    background-color: #282828;
+}
+
+/* Playlist image styling */
+.playlist-image img {
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.playlist-card:hover .playlist-image img {
+    transform: scale(1.05);
+}
+
+/* Playlist card padding */
+.playlist-card h3,
+.playlist-card p {
+    padding: 15px;
+}
+
+/* Playlist card title */
+.playlist-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Playlist card description */
+.playlist-description {
+    font-size: 0.85rem;
+    color: #B3B3B3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Horizontal scroll indicators */
+.carousel-nav {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    background: #b3b3b3;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.carousel-dot.active {
+    background: #1db954;
+    transform: scale(1.3);
+}
+
+/* ================================
+    7. POPULAR ARTISTS SECTION
+    ================================
+    Cards showing popular artists with circular images.
+    */
+
+.popular-artists {
+    padding: 4rem 2rem;
+    background-color: #0a0a0a;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Section header for popular artists */
+.popular-artists .section-header {
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+/* Horizontal scroll container - Mobile First */
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 5px 20px 5px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #1db954 #0a0a0a;
+}
+
+/* Grid view for desktop */
+.grid-view {
+    display: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: #0a0a0a;
+    border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #1db954;
+    border-radius: 10px;
+}
+
+/* Individual artist card */
+.artist-card {
+    flex: 0 0 calc(100% - 15px);
+    scroll-snap-align: start;
+    text-align: center;
+    transition: all 0.3s ease;
+    padding: 15px;
+    min-width: 100%;
+}
+
+.artist-card:hover {
+    transform: scale(1.02);
+}
+
+/* Play button on hover */
+.play-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 48px;
+    height: 48px;
+    background: #1db954;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.play-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #000;
+    margin-left: 3px;
+}
+
+.artist-card:hover .play-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Artist circular image container */
+.artist-image {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #282828;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.artist-card:hover .artist-image {
+    box-shadow: 0 8px 25px rgba(29, 185, 84, 0.3);
+}
+
+/* Artist image styling */
+.artist-image img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.artist-card:hover .artist-image img {
+    transform: scale(1.05);
+}
+
+/* Artist name */
+.artist-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Artist genre */
+.artist-genre {
+    font-size: 0.85rem;
+    color: #B3B3B3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ================================
+    8. TRENDING ALBUMS SECTION
+    ================================
+    Horizontal scroll layout of trending albums.
+    */
+
+.trending-albums {
+    padding: 4rem 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Section header for trending albums */
+.trending-albums .section-header {
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+/* Horizontal scroll container - Mobile First */
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 5px 20px 5px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #1db954 #121212;
+}
+
+/* Grid view for desktop */
+.grid-view {
+    display: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: #121212;
+    border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #1db954;
+    border-radius: 10px;
+}
+
+/* Individual album card */
+.album-card {
+    flex: 0 0 calc(100% - 15px);
+    scroll-snap-align: start;
+    background-color: #181818;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-align: center;
+    padding: 15px;
+    min-width: 100%;
+}
+
+.album-card:hover {
+    background-color: #282828;
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(29, 185, 84, 0.2);
+}
+
+/* Play button on hover */
+.play-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 48px;
+    height: 48px;
+    background: #1db954;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.play-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #000;
+    margin-left: 3px;
+}
+
+.album-card:hover .play-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Album cover container */
+.album-cover {
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Album cover image */
+.album-cover img {
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.album-card:hover .album-cover img {
+    transform: scale(1.05);
+}
+
+/* Album title */
+.album-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Album artist */
+.album-artist {
+    font-size: 0.85rem;
+    color: #B3B3B3;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Album year */
+.album-year {
+    font-size: 0.75rem;
+    color: #808080;
+}
+
+/* ================================
+   9. MUSIC CATEGORIES SECTION
+   ================================
+   Category cards for browsing music by genre.
+*/
+
+.categories {
+    padding: 4rem 2rem;
+    background-color: #0a0a0a;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Grid layout for category cards */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Individual category card */
+.category-card {
+    height: 150px;
+    background: linear-gradient(135deg, #1DB954 0%, #1aa34a 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Different category colors */
+.category-card:nth-child(1) {
+    background: linear-gradient(135deg, #FF6B6B 0%, #ee5a6f 100%);
+}
+
+.category-card:nth-child(2) {
+    background: linear-gradient(135deg, #4ECDC4 0%, #44b0aa 100%);
+}
+
+.category-card:nth-child(3) {
+    background: linear-gradient(135deg, #FFD93D 0%, #f5c842 100%);
+}
+
+.category-card:nth-child(4) {
+    background: linear-gradient(135deg, #6C5CE7 0%, #5f4ed0 100%);
+}
+
+.category-card:nth-child(5) {
+    background: linear-gradient(135deg, #A29BFE 0%, #9179f0 100%);
+}
+
+.category-card:nth-child(6) {
+    background: linear-gradient(135deg, #FF7675 0%, #ff5252 100%);
+}
+
+.category-card:nth-child(7) {
+    background: linear-gradient(135deg, #74B9FF 0%, #6ba3e5 100%);
+}
+
+.category-card:nth-child(8) {
+    background: linear-gradient(135deg, #F8B500 0%, #f7a700 100%);
+}
+
+/* Hover effect on category card */
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Category content */
+.category-content {
+    text-align: center;
+}
+
+/* Category heading */
+.category-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ================================
+   10. FEATURES SECTION
+   ================================
+   Highlights main features with icons.
+*/
+
+.features {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Grid layout for feature boxes */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Individual feature box */
+.feature-box {
+    background-color: #181818;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect on feature box */
+.feature-box:hover {
+    background-color: #282828;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(29, 185, 84, 0.2);
+}
+
+/* Feature icon styling */
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background-color: #1DB954;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    transition: all 0.3s ease;
+    font-size: 2rem;
+    color: #FFFFFF;
+}
+
+.feature-box:hover .feature-icon {
+    background-color: #1ed760;
+    transform: scale(1.1);
+}
+
+/* Feature heading */
+.feature-box h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+}
+
+/* Feature description */
+.feature-box p {
+    font-size: 0.95rem;
+    color: #B3B3B3;
+    line-height: 1.6;
+}
+
+/* ================================
+   11. NEWSLETTER SECTION
+   ================================
+   Email subscription section.
+*/
+
+.newsletter {
+    background: linear-gradient(135deg, #1DB954 0%, #0a0a0a 100%);
+    padding: 4rem 2rem;
+}
+
+/* Newsletter content container */
+.newsletter-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Newsletter heading */
+.newsletter-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+}
+
+/* Newsletter description */
+.newsletter-content p {
+    font-size: 1.1rem;
+    color: #B3B3B3;
+    margin-bottom: 2rem;
+}
+
+/* Newsletter form container */
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Newsletter email input */
+.newsletter-input {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+    color: #121212;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.newsletter-input:focus {
+    box-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+}
+
+.newsletter-input::placeholder {
+    color: #B3B3B3;
+}
+
+/* Newsletter subscribe button */
+.newsletter-btn {
+    padding: 1rem 2rem;
+    background-color: #1DB954;
+    border: none;
+    color: #FFFFFF;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.newsletter-btn:hover {
+    background-color: #1ed760;
+    transform: scale(1.05);
+}
+
+/* ================================
+   12. FOOTER STYLES
+   ================================
+   Professional footer with company info, links, and social media.
+*/
+
+.footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid #282828;
+}
+
+/* Footer content grid (4 columns) */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 3rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Footer column */
+.footer-column {
+    color: #B3B3B3;
+}
+
+/* Footer logo section */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+/* Footer logo image */
+.footer-logo img {
+    width: 32px;
+    height: 32px;
+}
+
+/* Footer column heading */
+.footer-column h4 {
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Footer links */
+.footer-column ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+    color: #B3B3B3;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #1DB954;
+}
+
+/* Social media icons */
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Social link styling */
+.social-link {
+    width: 40px;
+    height: 40px;
+    background-color: #181818;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #B3B3B3;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.social-link:hover {
+    background-color: #1DB954;
+    color: #FFFFFF;
+    transform: scale(1.1);
+}
+
+/* Footer bottom section */
+.footer-bottom {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid #282828;
+    color: #808080;
+    font-size: 0.9rem;
+}
+
+/* Horizontal scroll indicators */
+.carousel-nav {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    background: #b3b3b3;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.carousel-dot.active {
+    background: #1db954;
+    transform: scale(1.3);
+}
+
+/* ================================
+    13. RESPONSIVE DESIGN
+    ================================
+    Media queries for different screen sizes.
+    */
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+    /* Navbar adjustments */
+    .navbar-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .navbar-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    /* Hero section adjustments */
+    .hero {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    /* Grid adjustments */
+    .playlists-grid,
+    .albums-grid,
+    .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .artists-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+
+    /* Feature box adjustments */
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    /* Newsletter form */
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    /* Section header adjustments */
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+/* Horizontal scroll container adjustments for tablets */
+.scroll-container {
+    gap: 20px;
+    padding: 20px 5px 30px 5px;
+}
+
+.playlist-card,
+.artist-card,
+.album-card {
+    flex: 0 0 calc(50% - 10px);
+}
+
+/* Tablet image adjustments */
+@media (max-width: 768px) {
+    /* Playlist image styling */
+    .playlist-image img {
+        height: 300px;
+        object-fit: cover;
+    }
+
+    /* Artist image styling */
+    .artist-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Album cover image */
+    .album-cover img {
+        height: 300px;
+        object-fit: cover;
+    }
+}
+}
+
+/* Desktop (1024px and above) */
+@media (min-width: 1024px) {
+    /* Switch to grid view on desktop */
+    .scroll-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 24px;
+        overflow-x: visible;
+    }
+
+    .carousel-nav {
+        display: none;
+    }
+
+    .playlist-card,
+    .artist-card,
+    .album-card {
+        flex: unset;
+        min-width: unset;
+        scroll-snap-align: none;
+    }
+
+    .play-btn {
+        opacity: 0; /* revert to default, handle by hover */
+        transform: translateY(10px);
+    }
+    .playlist-card:hover .play-btn,
+    .artist-card:hover .play-btn,
+    .album-card:hover .play-btn {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Large Desktop (1440px and above) */
+@media (min-width: 1440px) {
+    .featured-playlists .grid-view,
+    .popular-artists .grid-view,
+    .trending-albums .grid-view {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+/* Mobile phones (480px and below) */
+@media (max-width: 480px) {
+    /* Navbar adjustments */
+    .navbar {
+        padding: 1rem;
+    }
+
+    .navbar-title {
+        font-size: 1.2rem;
+    }
+
+    .navbar-menu {
+        gap: 0.5rem;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
+    .btn-login,
+    .btn-signup {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    /* Hero section adjustments */
+    .hero {
+        padding: 1.5rem 1rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* All grids for mobile */
+    .playlists-grid,
+    .albums-grid,
+    .artists-grid,
+    .features-grid,
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    /* Section header adjustments */
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-header p {
+        font-size: 0.95rem;
+    }
+
+    /* Padding adjustments for mobile */
+    .featured-playlists,
+    .popular-artists,
+    .trending-albums,
+    .categories,
+    .features {
+        padding: 2rem 1rem;
+    }
+
+    /* Newsletter adjustments */
+    .newsletter {
+        padding: 2rem 1rem;
+    }
+
+    .newsletter-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .newsletter-input,
+    .newsletter-btn {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    /* Footer adjustments */
+    .footer-content {
+        padding: 2rem 1rem;
+    }
+
+    .footer-bottom {
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+
+    /* Category card height adjustment */
+    .category-card {
+        height: 120px;
+    }
+
+    .category-content h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Mobile image adjustments */
+    /* Playlist image styling */
+    .playlist-image img {
+        height: 250px;
+        object-fit: cover;
+    }
+
+    /* Artist image styling */
+    .artist-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* Album cover image */
+    .album-cover img {
+        height: 250px;
+        object-fit: cover;
+    }
+}
+
+/* ================================
+   14. SCROLL BEHAVIOR
+   ================================
+   Smooth scrolling for better user experience.
+*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ================================
+   15. UTILITY CLASSES
+   ================================
+   Helper classes for common styling patterns.
+*/
+
+/* Container class for consistent max-width */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ================================
+   END OF STYLESHEET
+   ================================
+*/

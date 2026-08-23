@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character encoding for proper text display -->
+    <meta charset="UTF-8">
+
+    <!-- Viewport settings for mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title shown in browser tab -->
+    <title>Spotify Clone - Music Streaming Platform</title>
+
+    <!-- Google Fonts - Import Poppins font family -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons CDN - for feature icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Link to custom CSS file -->
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <!-- ========================
+        NAVIGATION BAR SECTION
+        ======================== -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify Logo" class="navbar-logo">
+                <span class="navbar-title">Spotify</span>
+            </div>
+
+            <ul class="navbar-menu">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="search.html" class="nav-link">Search</a></li>
+                <li><a href="library.html" class="nav-link">Library</a></li>
+                <li><a href="premium.html" class="nav-link">Premium</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="navbar-auth">
+                <button class="btn-login">Login</button>
+                <button class="btn-signup">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================
+        HERO SECTION
+        ======================== -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Music For Everyone</h1>
+
+            <p class="hero-description">
+                Stream millions of songs and discover new music every day.
+                Create playlists, share with friends, and enjoy ad-free music.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Start Listening</button>
+                <button class="btn btn-secondary">Explore Playlist</button>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&q=80" alt="Music Hero Image">
+        </div>
+    </section>
+
+    <!-- ========================
+        FEATURED PLAYLISTS SECTION
+        ======================== -->
+    <section class="featured-playlists">
+        <div class="section-header">
+            <h2>Featured Playlists</h2>
+            <p>Discover carefully curated playlists for every mood</p>
+        </div>
+
+        <div class="scroll-container">
+            <!-- Playlist Card 1 -->
+            <div class="playlist-card">
+                <div class="playlist-image">
+                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=500&q=80" alt="Chill Vibes Coffee">
+                </div>
+                <h3 class="playlist-title">Chill Vibes</h3>
+                <p class="playlist-description">Relaxing songs for your daily coffee</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Playlist Card 2 -->
+            <div class="playlist-card">
+                <div class="playlist-image">
+                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=500&q=80" alt="Workout Energy">
+                </div>
+                <h3 class="playlist-title">Workout Energy</h3>
+                <p class="playlist-description">High-energy tracks to boost your workout</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Playlist Card 3 -->
+            <div class="playlist-card">
+                <div class="playlist-image">
+                    <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=500&q=80" alt="Late Night City">
+                </div>
+                <h3 class="playlist-title">Late Night Hits</h3>
+                <p class="playlist-description">Popular tracks for the night owls</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Playlist Card 4 -->
+            <div class="playlist-card">
+                <div class="playlist-image">
+                    <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=500&q=80" alt="Indie Gems">
+                </div>
+                <h3 class="playlist-title">Indie Gems</h3>
+                <p class="playlist-description">Discover independent artists and new sounds</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Playlist Card 5 -->
+            <div class="playlist-card">
+                <div class="playlist-image">
+                    <img src="https://images.unsplash.com/photo-1539375665275-f9de415ef9ac?auto=format&fit=crop&w=500&q=80" alt="Retro Classics">
+                </div>
+                <h3 class="playlist-title">Retro Classics</h3>
+                <p class="playlist-description">Timeless songs from the golden era</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Playlist Card 6 -->
+            <div class="playlist-card">
+                <div class="playlist-image">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=80" alt="Summer Breeze Sunny Beach">
+                </div>
+                <h3 class="playlist-title">Summer Breeze</h3>
+                <p class="playlist-description">Feel good tracks for sunny days</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-nav">
+            <div class="carousel-dot active"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+        </div>
+    </section>
+
+    <!-- ========================
+        POPULAR ARTISTS SECTION
+        ======================== -->
+    <section class="popular-artists">
+        <div class="section-header">
+            <h2>Popular Artists</h2>
+            <p>Follow your favorite artists and stay updated</p>
+        </div>
+
+        <div class="scroll-container">
+            <!-- Artist Card 1 -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="The Weeknd">
+                </div>
+                <h3 class="artist-name">The Weeknd</h3>
+                <p class="artist-genre">Pop / R&B</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Artist Card 2 -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80" alt="Ariana Grande">
+                </div>
+                <h3 class="artist-name">Ariana Grande</h3>
+                <p class="artist-genre">Pop / Soul</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Artist Card 3 -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="Drake">
+                </div>
+                <h3 class="artist-name">Drake</h3>
+                <p class="artist-genre">Hip-Hop / Rap</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Artist Card 4 -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80" alt="Taylor Swift">
+                </div>
+                <h3 class="artist-name">Taylor Swift</h3>
+                <p class="artist-genre">Pop / Country</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Artist Card 5 -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80" alt="Billie Eilish">
+                </div>
+                <h3 class="artist-name">Billie Eilish</h3>
+                <p class="artist-genre">Alternative / Pop</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Artist Card 6 -->
+            <div class="artist-card">
+                <div class="artist-image">
+                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&q=80" alt="Post Malone">
+                </div>
+                <h3 class="artist-name">Post Malone</h3>
+                <p class="artist-genre">Hip-Hop / Pop</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-nav">
+            <div class="carousel-dot active"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+        </div>
+    </section>
+
+    <!-- ========================
+        TRENDING ALBUMS SECTION
+        ======================== -->
+    <section class="trending-albums">
+        <div class="section-header">
+            <h2>Trending Albums</h2>
+            <p>The most popular albums right now</p>
+        </div>
+
+        <div class="scroll-container">
+            <!-- Album Card 1 -->
+            <div class="album-card">
+                <div class="album-cover">
+                    <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=400&q=80" alt="Midnight Dreams">
+                </div>
+                <h3 class="album-title">Midnight Dreams</h3>
+                <p class="album-artist">The Weeknd</p>
+                <p class="album-year">2024</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Album Card 2 -->
+            <div class="album-card">
+                <div class="album-cover">
+                    <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=400&q=80" alt="Eternal Beats">
+                </div>
+                <h3 class="album-title">Eternal Beats</h3>
+                <p class="album-artist">Ariana Grande</p>
+                <p class="album-year">2024</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Album Card 3 -->
+            <div class="album-card">
+                <div class="album-cover">
+                    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&q=80" alt="Urban Legends">
+                </div>
+                <h3 class="album-title">Urban Legends</h3>
+                <p class="album-artist">Drake</p>
+                <p class="album-year">2024</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Album Card 4 -->
+            <div class="album-card">
+                <div class="album-cover">
+                    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=400&q=80" alt="Folklore Vol. 2">
+                </div>
+                <h3 class="album-title">Folklore Vol. 2</h3>
+                <p class="album-artist">Taylor Swift</p>
+                <p class="album-year">2024</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Album Card 5 -->
+            <div class="album-card">
+                <div class="album-cover">
+                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&q=80" alt="Electric Dreams">
+                </div>
+                <h3 class="album-title">Electric Dreams</h3>
+                <p class="album-artist">Post Malone</p>
+                <p class="album-year">2024</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+
+            <!-- Album Card 6 -->
+            <div class="album-card">
+                <div class="album-cover">
+                    <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?w=400&q=80" alt="Acoustic Sessions">
+                </div>
+                <h3 class="album-title">Acoustic Sessions</h3>
+                <p class="album-artist">Ed Sheeran</p>
+                <p class="album-year">2024</p>
+                <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-nav">
+            <div class="carousel-dot active"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+        </div>
+    </section>
+
+    <!-- ========================
+        MUSIC CATEGORIES SECTION
+        ======================== -->
+    <section class="categories">
+        <div class="section-header">
+            <h2>Explore by Category</h2>
+            <p>Find music that matches your mood</p>
+        </div>
+
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-content">
+                    <h3>Pop</h3>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-content">
+                    <h3>Rock</h3>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-content">
+                    <h3>Hip-Hop</h3>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-content">
+                    <h3>Classical</h3>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-content">
+                    <h3>Lo-Fi</h3>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-content">
+                    <h3>Jazz</h3>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-content">
+                    <h3>EDM</h3>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <div class="category-content">
+                    <h3>Podcast</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+        FEATURES SECTION
+        ======================== -->
+    <section class="features">
+        <div class="section-header">
+            <h2>Why Choose Spotify?</h2>
+            <p>Experience music like never before</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3>Millions of Songs</h3>
+                <p>Access over 70 million songs from artists around the world</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-headphones"></i>
+                </div>
+                <h3>High Quality Audio</h3>
+                <p>Premium sound quality for the best listening experience</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Listen Anywhere</h3>
+                <p>Stream on your phone, tablet, computer, or speaker</p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Personalized Playlists</h3>
+                <p>Get recommendations based on your music taste</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+        NEWSLETTER SECTION
+        ======================== -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for new releases and exclusive offers</p>
+
+            <div class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email">
+                <button class="newsletter-btn">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+        FOOTER SECTION
+        ======================== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify Logo">
+                    <span>Spotify Clone</span>
+                </div>
+                <p>Your ultimate music streaming platform for discovering and enjoying music</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="premium.html">Premium</a></li>
+                    <li><a href="contact.html">Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Spotify Clone. All Rights Reserved.</p>
+        </div>
+    <script src="../JS/app.js"></script>
+<script src="../JS/app.js"></script>
+</body>
+</html>
+
+
+
