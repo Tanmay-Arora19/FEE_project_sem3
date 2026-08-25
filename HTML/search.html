@@ -10,23 +10,46 @@
     <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar-container">
+    <nav class="navbar" id="mainNavbar">
+        <div class="navbar-top">
             <a href="index.html" class="navbar-brand">
                 <img src="../assets/logo.svg" alt="PulseWave Logo" class="navbar-logo">
                 <span class="navbar-title">PulseWave</span>
             </a>
-            <ul class="navbar-menu">
-                <li><a href="home.html" class="nav-link">Home</a></li>
-                <li><a href="search.html" class="nav-link">Search</a></li>
-                <li><a href="library.html" class="nav-link">Library</a></li>
-                <li><a href="premium.html" class="nav-link">Premium</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="navbar-auth">
-                <button class="btn-login">Login</button>
-                <button class="btn-signup">Sign Up</button>
+
+            <div class="navbar-actions">
+                <!-- Desktop Auth Section (Left of 3-dots on larger screens) -->
+                <div class="navbar-auth navbar-auth-desktop">
+                    <button class="btn-login">Login</button>
+                    <button class="btn-signup">Sign Up</button>
+                </div>
+
+                <!-- 3-Dots Toggle Button -->
+                <button class="nav-dots-btn" id="navDotsBtn" aria-label="Toggle navigation menu" aria-expanded="false" title="Menu">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Collapsible Menu -->
+        <div class="navbar-collapse" id="navbarCollapse">
+            <div class="navbar-collapse-inner">
+                <ul class="navbar-menu">
+                    <li><a href="home.html" class="nav-link">Home</a></li>
+                    <li><a href="search.html" class="nav-link">Search</a></li>
+                    <li><a href="library.html" class="nav-link">Library</a></li>
+                    <li><a href="premium.html" class="nav-link">Premium</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <!-- Mobile Auth Section (Inside collapsed menu for mobile) -->
+                <div class="navbar-auth navbar-auth-mobile">
+                    <button class="btn-login">Login</button>
+                    <button class="btn-signup">Sign Up</button>
+                </div>
             </div>
         </div>
     </nav>
