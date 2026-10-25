@@ -333,3 +333,22 @@ body:has(.auth-screen) #root { width: 100vw; height: 100dvh; }
   .auth-screen-signup .auth-card h1 { margin-bottom: 32px; }
   .auth-footer { position: static; flex: 0 0 auto; margin-top: 42px; padding-bottom: 8px; }
 }
+
+
+/* Card hover play buttons on Public Experience */
+.public-song-card, .public-artist-card { position: relative; cursor: pointer; text-align: left; }
+.public-card-art-wrap { position: relative; width: 100%; aspect-ratio: 1; border-radius: 8px; overflow: hidden; }
+.public-card-play {
+  position: absolute; right: 12px; bottom: 12px; width: 48px; height: 48px;
+  border-radius: 50%; background: #1ed760; color: #000;
+  display: grid; place-items: center; opacity: 0; transform: translateY(8px);
+  transition: all .2s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+  border: 0; cursor: pointer;
+}
+.public-song-card:hover .public-card-play,
+.public-artist-card:hover .public-card-play {
+  opacity: 1; transform: translateY(0);
+}
+.public-card-play:hover {
+  transform: scale(1.08) translateY(0) !important; background: #1fdf64;
+}

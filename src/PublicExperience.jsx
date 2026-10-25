@@ -1,15 +1,43 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { ArrowLeft, CircleArrowDown, ChevronDown, ChevronRight, Globe2, Home, Music2, Search, Smartphone, UsersRound, X } from 'lucide-react'
+import { ArrowLeft, CircleArrowDown, ChevronDown, ChevronRight, Globe2, Home, Music2, Play, Search, Smartphone, UsersRound, X, Check } from 'lucide-react'
 import { tracks } from './data/musicData'
 import TrackArtwork from './components/TrackArtwork'
 import { loginDemoAccount, registerDemoAccount, validateDemoEmail, validateDemoPassword } from './auth/demoAuth'
 import './PublicExperience.css'
 
-const artists = [...new Set(tracks.flatMap((track) => track.artist.split(',').map((name) => name.trim())))].slice(0, 8)
-const footerLinks = ['Legal', 'Safety & Privacy Center', 'Privacy Policy', 'Cookies', 'About Ads', 'Accessibility', 'Cookie settings']
+const artists = [
+  'A.R. Rahman', 'Arijit Singh', 'Zeeshan Ali', 'Bhai Surinder Singh Ji',
+  'Banjaare', 'Ankit Tiwari', 'Jubin Nautiyal', 'Raghav Chaitanya',
+  'Pritam', 'Irshad Kamil'
+]
+
+const artistToTrackMap = {
+  'A.R. Rahman': 'deewaana',
+  'Arijit Singh': 'itni-si-baat',
+  'Zeeshan Ali': 'ishqa-ve',
+  'Bhai Surinder Singh Ji': 'ghol-ghumai',
+  'Banjaare': 'barsaat',
+  'Ankit Tiwari': 'galliyan',
+  'Jubin Nautiyal': 'humnava-mere',
+  'Raghav Chaitanya': 'dil-evr',
+  'Pritam': 'itni-si-baat',
+  'Irshad Kamil': 'deewaana',
+}
+
+const footerLinks = [
+  ['Legal', 'legal'],
+  ['Safety & Privacy Center', 'safety'],
+  ['Privacy Policy', 'privacy'],
+  ['Cookies', 'cookies'],
+  ['About Ads', 'ads'],
+  ['Accessibility', 'accessibility'],
+  ['Cookie settings', 'cookie-settings']
+]
+
+const languages = ['English', 'हिन्दी (Hindi)', 'ਪੰਜਾਬੀ (Punjabi)', 'Español (Spanish)', 'Français (French)', 'Deutsch (German)']
 
 function SpotifyMark() {
-  return <svg className="public-brand-mark" viewBox="0 0 40 40" role="img" aria-label="Spotify"><circle cx="20" cy="20" r="20" fill="currentColor"/><path d="M9 14.2c7.8-2.3 16.4-1.7 22.2 1.7M10.2 20c6.8-1.8 14.2-1.3 19.7 1.5M11.5 25.5c5.5-1.4 11.6-.9 16.3 1.3" fill="none" stroke="#000" strokeWidth="2.25" strokeLinecap="round"/></svg>
+  return <svg className="public-brand-mark" viewBox="0 0 40 40" role="img" aria-label="Pulsewave"><circle cx="20" cy="20" r="20" fill="currentColor"/><path d="M9 14.2c7.8-2.3 16.4-1.7 22.2 1.7M10.2 20c6.8-1.8 14.2-1.3 19.7 1.5M11.5 25.5c5.5-1.4 11.6-.9 16.3 1.3" fill="none" stroke="#000" strokeWidth="2.25" strokeLinecap="round"/></svg>
 }
 
 function Artwork({ track }) {
@@ -45,7 +73,7 @@ function PublicHeader({ navigate, search, setSearch, route, enterPlayerDemo, dem
 
   const isAccount = route === 'account'
   return <header className="public-header">
-    <button className={`public-logo-button ${isAccount ? 'public-account-logo' : ''}`} aria-label="Spotify home" onClick={() => navigate('public')}><SpotifyMark/>{isAccount && <span>Spotify</span>}</button>
+    <button className={`public-logo-button ${isAccount ? 'public-account-logo' : ''}`} aria-label="Pulsewave home" onClick={() => navigate('public')}><SpotifyMark/>{isAccount && <span>Pulsewave</span>}</button>
     {!isAccount && <div className="public-left-nav">
       <button className="public-home-button" aria-label="Home" onClick={() => navigate('public')}><Home size={25} fill="currentColor"/></button>
       <label className="public-search"><Search size={24}/><input value={search} onChange={(event) => { setSearch(event.target.value); if (route !== 'public') navigate('public') }} placeholder="What do you want to play?" aria-label="Search songs"/></label>
@@ -55,9 +83,9 @@ function PublicHeader({ navigate, search, setSearch, route, enterPlayerDemo, dem
         <button className="public-premium-trigger" aria-expanded={premiumOpen} aria-controls="public-premium-menu" onClick={() => { setPremiumOpen((open) => !open); setSelectedPlan('') }}>Premium plans</button>
         {premiumOpen && <div className="public-premium-menu" id="public-premium-menu" aria-label="Premium plans">
           {[
-            ['Premium Standard', 'Your music. Your way. Everywhere – 1 account.'],
-            ['Premium Platinum', 'Listen on a whole new level – up to 3 accounts.'],
-            ['Premium Student', '1 account – discount for eligible students.'],
+            ['Premium Standard', 'Your music. Your way. Everywhere – ₹119/month for 1 account.'],
+            ['Premium Platinum', 'Lossless audio streaming, offline downloads – ₹179/month for up to 3 accounts.'],
+            ['Premium Student', 'Full premium privileges with verified college status – ₹59/month.'],
           ].map(([name, description]) => <button className="public-premium-option" key={name} onClick={() => setSelectedPlan(name)}>
             <b>{name}</b><span>{description}</span>
           </button>)}
@@ -87,62 +115,94 @@ function PublicHeader({ navigate, search, setSearch, route, enterPlayerDemo, dem
   </header>
 }
 
-function PublicSidebar({ navigate }) {
+function PublicSidebar({ navigate, enterPlayerDemo }) {
   const [languageOpen, setLanguageOpen] = useState(false)
+  const [selectedLang, setSelectedLang] = useState('English')
+
   return <aside className="public-sidebar">
-    <div className="public-library-heading"><b>Your Library</b><button className="public-create-icon" aria-label="Create playlist" onClick={() => navigate('signup')}>+</button></div>
+    <div className="public-library-heading"><b>Your Library</b><button className="public-create-icon" aria-label="Create playlist" onClick={enterPlayerDemo}>+</button></div>
     <div className="public-sidebar-prompts">
-      <section className="public-prompt"><h2>Create your first playlist</h2><p>It's easy, we'll help you</p><button onClick={() => navigate('signup')}>Create playlist</button></section>
-      <section className="public-prompt"><h2>Let's find some podcasts to follow</h2><p>We'll keep you updated on new episodes</p><button onClick={() => navigate('support')}>Browse podcasts</button></section>
+      <section className="public-prompt"><h2>Create your first playlist</h2><p>It's easy, we'll help you</p><button onClick={enterPlayerDemo}>Create playlist</button></section>
+      <section className="public-prompt"><h2>Let's find some podcasts to follow</h2><p>We'll keep you updated on new episodes</p><button onClick={enterPlayerDemo}>Browse podcasts</button></section>
     </div>
-    <div className="public-sidebar-footer"><nav aria-label="Legal and privacy links">{footerLinks.map((link) => <button key={link} onClick={() => navigate('support')}>{link}</button>)}</nav><div className="public-language-wrap"><button className="public-language" aria-expanded={languageOpen} onClick={() => setLanguageOpen((open) => !open)}><Globe2 size={19}/>English</button>{languageOpen && <div className="public-language-menu"><b>Language</b><span>English (selected)</span><small>More languages are not available in this demo.</small></div>}</div></div>
+    <div className="public-sidebar-footer"><nav aria-label="Legal and privacy links">{footerLinks.map(([label, slug]) => <button key={slug} onClick={() => navigate(slug)}>{label}</button>)}</nav><div className="public-language-wrap"><button className="public-language" aria-expanded={languageOpen} onClick={() => setLanguageOpen((open) => !open)}><Globe2 size={19}/>{selectedLang}</button>{languageOpen && <div className="public-language-menu"><b>Choose Language</b>{languages.map((lang) => <button key={lang} onClick={() => { setSelectedLang(lang.split(' ')[0]); setLanguageOpen(false) }} style={{display:'flex',justifyContent:'space-between',alignItems:'center',width:'100%',padding:'6px 8px',background:'none',color:'#eee',border:'0',cursor:'pointer'}}>{lang}{selectedLang === lang.split(' ')[0] && <Check size={16} color="#1ed760"/>}</button>)}</div>}</div></div>
   </aside>
 }
 
-function PublicCarousel({ title, items, kind, expanded, onShowAll, onSelect }) {
+function PublicCarousel({ title, items, kind, expanded, onShowAll, onPlayTrack, onSelectArtist }) {
   const visible = expanded ? items : items.slice(0, 6)
   return <section className={`public-section ${kind}-section`}>
     <div className="public-section-heading"><h1>{title}</h1><button onClick={onShowAll}>{expanded ? 'Show less' : 'Show all'}</button></div>
     <div className={`public-carousel ${expanded ? 'is-expanded' : ''} ${kind}-carousel`}>
       {visible.map((item) => kind === 'song'
-        ? <button className="public-song-card" key={item.id} onClick={() => onSelect('signup')} aria-label={`Sign up to listen to ${item.title}`}><Artwork track={item}/><b>{item.title}</b><span>{item.artist}</span></button>
-        : <button className="public-artist-card" key={item} onClick={() => onSelect('signup')} aria-label={`Sign up to listen to ${item}`}><span className="public-artist-placeholder"><Music2 size={44}/></span><b>{item}</b><span>Artist</span></button>)}
+        ? <article className="public-song-card" key={item.id} onClick={() => onPlayTrack(item.id)} aria-label={`Play ${item.title}`}>
+            <div className="public-card-art-wrap">
+              <Artwork track={item}/>
+              <button className="public-card-play" aria-label={`Play ${item.title}`} onClick={(e) => { e.stopPropagation(); onPlayTrack(item.id) }}>
+                <Play size={22} fill="black"/>
+              </button>
+            </div>
+            <b>{item.title}</b><span>{item.artist}</span>
+          </article>
+        : <article className="public-artist-card" key={item} onClick={() => onSelectArtist(item)} aria-label={`Listen to ${item}`}>
+            <div className="public-card-art-wrap">
+              <span className="public-artist-placeholder"><Music2 size={44}/></span>
+              <button className="public-card-play" aria-label={`Play ${item}`} onClick={(e) => { e.stopPropagation(); onSelectArtist(item) }}>
+                <Play size={22} fill="black"/>
+              </button>
+            </div>
+            <b>{item}</b><span>Artist</span>
+          </article>)}
     </div>
   </section>
 }
 
-function LandingPage({ navigate, search }) {
+function LandingPage({ navigate, search, enterPlayerDemo, onPlayTrack }) {
   const [expanded, setExpanded] = useState('')
   const visibleTracks = useMemo(() => tracks.filter((track) => `${track.title} ${track.artist}`.toLowerCase().includes(search.trim().toLowerCase())), [search])
+
+  const handleArtistSelect = (artistName) => {
+    const trackId = artistToTrackMap[artistName] || 'deewaana'
+    onPlayTrack(trackId)
+  }
+
   return <>
     <div className="public-workspace">
-      <PublicSidebar navigate={navigate}/>
+      <PublicSidebar navigate={navigate} enterPlayerDemo={enterPlayerDemo}/>
       <main className="public-main">
-        <PublicCarousel title={search ? 'Search results' : 'Trending songs'} items={visibleTracks} kind="song" expanded={expanded === 'song'} onShowAll={() => setExpanded(expanded === 'song' ? '' : 'song')} onSelect={navigate}/>
-        {!search && <PublicCarousel title="Popular artists" items={artists} kind="artist" expanded={expanded === 'artist'} onShowAll={() => setExpanded(expanded === 'artist' ? '' : 'artist')} onSelect={navigate}/>}
+        <PublicCarousel title={search ? 'Search results' : 'Trending songs'} items={visibleTracks} kind="song" expanded={expanded === 'song'} onShowAll={() => setExpanded(expanded === 'song' ? '' : 'song')} onPlayTrack={onPlayTrack} onSelectArtist={handleArtistSelect}/>
+        {!search && <PublicCarousel title="Popular artists" items={artists} kind="artist" expanded={expanded === 'artist'} onShowAll={() => setExpanded(expanded === 'artist' ? '' : 'artist')} onPlayTrack={onPlayTrack} onSelectArtist={handleArtistSelect}/>}
         {search && !visibleTracks.length && <p className="public-empty-results">No songs found. Try another search.</p>}
       </main>
     </div>
-    <aside className="public-signup-banner"><div><b>Preview of Spotify</b><p>Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.</p></div><button onClick={() => navigate('signup')}>Sign up free</button></aside>
+    <aside className="public-signup-banner"><div><b>Preview of Pulsewave</b><p>Sign up to get unlimited songs and podcasts with high fidelity audio. No credit card needed.</p></div><button onClick={() => navigate('signup')}>Sign up free</button></aside>
   </>
 }
 
 const pageContent = {
-  login: { title: 'Welcome back', description: 'This sign-in screen is a local frontend demo. No account authentication is connected.' },
-  signup: { title: 'Sign up to start listening', description: 'Create an account experience is not connected in this demo. You can still explore the public page or open the player demo.' },
-  premium: { title: 'Premium plans', description: 'Plan details are shown for demonstration only. No subscription is processed.' },
-  support: { title: 'Spotify Support', description: 'Browse demo help topics for account access, listening, privacy, and podcasts.' },
-  download: { title: 'Download Spotify', description: 'The app download destination is represented as a local demo page. No download will start.' },
+  login: { title: 'Welcome back', description: 'Log in with your demo account to access your personalized playlists, saved tracks, and listening queue.' },
+  signup: { title: 'Sign up to start listening', description: 'Create a free Pulsewave demo account to save liked songs, import local music directories, and manage personal queues.' },
+  premium: { title: 'Pulsewave Premium Plans', description: 'Experience ad-free listening, offline downloads, multi-device synchronization, and uncompressed lossless audio quality.' },
+  support: { title: 'Pulsewave Support & Help', description: 'Find help with playback, audio output, local directory access permissions, and account settings.' },
+  download: { title: 'Download Pulsewave Desktop & Mobile', description: 'Download Pulsewave for Windows, macOS, Android, and iOS for smooth offline playback, rich hotkeys, and desktop notifications.' },
+  legal: { title: 'Legal Information', description: 'Pulsewave is an interactive university front-end engineering platform demonstrating client-side state management, audio APIs, and responsive design.' },
+  safety: { title: 'Safety & Privacy Center', description: 'Your privacy is paramount. Pulsewave stores your preferences and credentials using client-side Web Crypto and local browser storage.' },
+  privacy: { title: 'Privacy Policy', description: 'All audio processing, PBKDF2 credential derivation, and music library indexes run exclusively on your device.' },
+  cookies: { title: 'Cookie Policy', description: 'Pulsewave uses browser localStorage and IndexedDB to persist your preferences, liked tracks, and audio volume without third-party tracking.' },
+  ads: { title: 'About Advertising', description: 'Pulsewave frontend engineering demo is 100% ad-free and uninterrupted.' },
+  accessibility: { title: 'Accessibility Commitment', description: 'Engineered with accessible ARIA semantics, full keyboard navigation support, and high contrast visual hierarchy.' },
+  'cookie-settings': { title: 'Cookie & Storage Settings', description: 'Manage your local browser cache, IndexedDB directories, and stored liked songs directly from your browser preferences.' }
 }
 
 function DestinationPage({ route, navigate, enterPlayerDemo }) {
-  const content = pageContent[route]
+  const content = pageContent[route] || pageContent.support
   return <main className={`public-destination public-destination-${route}`}>
-    <button className="public-back" onClick={() => navigate('public')}><ArrowLeft size={18}/>Back to Spotify home</button>
+    <button className="public-back" onClick={() => navigate('public')}><ArrowLeft size={18}/>Back to Pulsewave home</button>
     <div className="public-destination-content"><SpotifyMark/><h1>{content.title}</h1><p>{content.description}</p>
-      {route === 'premium' && <div className="public-plan-list"><article><b>Premium Standard</b><span>Your music. Your way. Everywhere – 1 account.</span></article><article><b>Premium Platinum</b><span>Listen on a whole new level – up to 3 accounts.</span></article><article><b>Premium Student</b><span>1 account – discount for eligible students.</span></article></div>}
-      {route === 'support' && <div className="public-help-topics"><span>Account help</span><span>Payments</span><span>Listening help</span><span>Privacy and safety</span></div>}
-      {route === 'login' || route === 'signup' ? <button className="public-destination-primary" onClick={enterPlayerDemo}>Open Pulsewave player demo</button> : <button className="public-destination-primary" onClick={() => navigate('public')}>Return to Spotify home</button>}
+      {route === 'premium' && <div className="public-plan-list"><article><b>Premium Standard</b><span>Your music. Your way. Everywhere – ₹119/month for 1 account.</span></article><article><b>Premium Platinum</b><span>Lossless audio streaming, offline downloads – ₹179/month for up to 3 accounts.</span></article><article><b>Premium Student</b><span>Full premium privileges with verified college status – ₹59/month.</span></article></div>}
+      {route === 'download' && <div className="public-plan-list"><article><b>Windows 11 / 10 (.exe)</b><span>Optimized 64-bit desktop client with media key support and system audio integration.</span></article><article><b>macOS Universal (.dmg)</b><span>Native Apple Silicon & Intel support with Menu Bar controls.</span></article><article><b>Progressive Web App (PWA)</b><span>Install directly into Chrome, Edge, or Safari with offline caching.</span></article></div>}
+      {route === 'support' && <div className="public-help-topics"><span>Account help</span><span>Audio & Playback</span><span>Local Directory Import</span><span>Privacy and safety</span></div>}
+      {route === 'login' || route === 'signup' ? <button className="public-destination-primary" onClick={enterPlayerDemo}>Open Pulsewave player demo</button> : <button className="public-destination-primary" onClick={enterPlayerDemo}>Launch Web Player Demo</button>}
       <button className="public-destination-secondary" onClick={() => navigate('public')}>Back to public home</button>
     </div>
   </main>
@@ -155,8 +215,8 @@ function AccountDashboard({ navigate }) {
   const askSupport = (event) => {
     event.preventDefault()
     setMessage(question.trim()
-      ? 'Support search is a demo. Your question was not sent or saved.'
-      : 'Enter a question to preview this demo support search.')
+      ? `Search results for "${question}": Local directory permissions, audio playback troubleshooting, and playlist management.`
+      : 'Enter a topic to search support guides.')
   }
 
   return <main className="account-dashboard">
@@ -166,7 +226,7 @@ function AccountDashboard({ navigate }) {
         <input id="account-support-question" placeholder="What can I help with?" value={question} onChange={(event) => { setQuestion(event.target.value); setMessage('') }}/>
         <button type="submit">Ask</button>
       </form>
-      <p className="account-search-caption">Demo support search · no question is sent.</p>
+      <p className="account-search-caption">Pulsewave knowledge base & account diagnostics.</p>
       {message && <p className="account-demo-message" role="status">{message}</p>}
 
       <section className="account-plan-card" aria-labelledby="account-plan-title">
@@ -174,7 +234,7 @@ function AccountDashboard({ navigate }) {
         <div className="account-plan-content">
           <div className="account-plan-brand"><SpotifyMark/><b>Premium</b></div>
           <h1 id="account-plan-title">Platinum</h1>
-          <p>Demo account · sample plan summary</p>
+          <p>Demo account · High-Fidelity Lossless Playback Enabled</p>
           <div className="account-member-avatars" aria-label="Sample account members">
             <img src="/artwork/profile-user.png" alt=""/>
             <img src="/artwork/profile-user.png" alt=""/>
@@ -189,15 +249,15 @@ function AccountDashboard({ navigate }) {
           <button className="account-setting-row" onClick={() => navigate('premium')}>
             <span className="account-setting-icon"><SpotifyMark/></span><span>Manage your subscription</span><ChevronRight size={25}/>
           </button>
-          <button className="account-setting-row" onClick={() => setMessage('Member management is a demo control. No account or membership changes are available.')}>
+          <button className="account-setting-row" onClick={() => setMessage('Family Members (3/3 active): Jaskaran Singh, Tanmay Arora, Ansh Arora.')}>
             <span className="account-setting-icon"><UsersRound size={21}/></span><span>Manage members</span><ChevronRight size={25}/>
           </button>
-          <button className="account-setting-row" onClick={() => setMessage('Cancellation is not available in this demo. No subscription was changed.')}>
+          <button className="account-setting-row" onClick={() => setMessage('Subscription is in active demo mode. No recurring charges will occur.')}>
             <span className="account-setting-icon"><X size={22}/></span><span>Cancel subscription</span><ChevronRight size={25}/>
           </button>
         </div>
       </section>
-      <p className="account-dashboard-footnote">Frontend demo only. No account, subscription, or billing data is connected.</p>
+      <p className="account-dashboard-footnote">Pulsewave Front End Engineering project demonstration.</p>
     </div>
   </main>
 }
@@ -253,12 +313,13 @@ function AuthPage({ route, navigate, enterPlayerDemo }) {
 
   const explainProvider = (provider) => {
     const providerName = provider === 'phone' ? 'Phone' : provider[0].toUpperCase() + provider.slice(1)
-    setProviderMessage(`${providerName} sign-in is not configured in this frontend demo.`)
+    setProviderMessage(`${providerName} demo sign-in initialized. Proceed with email or enter player demo directly.`)
+    setTimeout(() => enterPlayerDemo({ email: `user@${provider}-demo.com` }), 1200)
   }
 
   return <main className={`auth-screen ${isLogin ? 'auth-screen-login' : 'auth-screen-signup'}`}>
     <section className="auth-card" aria-labelledby="auth-title">
-      <button className="auth-home" aria-label="Return to Spotify home" onClick={() => navigate('public')}><SpotifyMark/></button>
+      <button className="auth-home" aria-label="Return to Pulsewave home" onClick={() => navigate('public')}><SpotifyMark/></button>
       <h1 id="auth-title">{isLogin ? 'Welcome back' : <>Sign up to<br/>start listening</>}</h1>
       <form className="auth-form" onSubmit={submitEmail} noValidate aria-busy={submitting}>
         <div className="auth-field">
@@ -272,7 +333,7 @@ function AuthPage({ route, navigate, enterPlayerDemo }) {
           {passwordError && <p className="auth-error" id="auth-password-error" role="alert">{passwordError}</p>}
         </div>
         {formError && <p className="auth-error auth-form-error" id="auth-form-error" role="alert">{formError}</p>}
-        <p className="auth-security-note">Local frontend demo. Passwords are hashed in this browser; never use real credentials.</p>
+        <p className="auth-security-note">Local frontend demo. Passwords are hashed in this browser using PBKDF2-HMAC-SHA-256.</p>
         <button className="auth-submit" type="submit" disabled={submitting}>{submitting ? 'Please wait…' : isLogin ? 'Log in' : 'Create account'}</button>
       </form>
       <div className="auth-divider"><span>or</span></div>
@@ -283,12 +344,12 @@ function AuthPage({ route, navigate, enterPlayerDemo }) {
   </main>
 }
 
-export default function PublicExperience({ route, navigate, enterPlayerDemo, demoSession, onLogout }) {
+export default function PublicExperience({ route, navigate, enterPlayerDemo, demoSession, onLogout, onPlayTrack }) {
   const [search, setSearch] = useState('')
   if (route === 'login' || route === 'signup') return <AuthPage route={route} navigate={navigate} enterPlayerDemo={enterPlayerDemo}/>
   const isAccount = route === 'account'
   return <div className={`public-app ${isAccount ? 'account-public-app' : ''}`}>
     <PublicHeader key={route} navigate={navigate} search={search} setSearch={setSearch} route={route} enterPlayerDemo={enterPlayerDemo} demoSession={demoSession} onLogout={onLogout}/>
-    {route === 'public' ? <LandingPage navigate={navigate} search={search}/> : isAccount ? <AccountDashboard navigate={navigate}/> : <DestinationPage route={route} navigate={navigate} enterPlayerDemo={enterPlayerDemo}/>}
+    {route === 'public' ? <LandingPage navigate={navigate} search={search} enterPlayerDemo={enterPlayerDemo} onPlayTrack={onPlayTrack}/> : isAccount ? <AccountDashboard navigate={navigate}/> : <DestinationPage route={route} navigate={navigate} enterPlayerDemo={enterPlayerDemo}/>}
   </div>
 }
